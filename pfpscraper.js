@@ -12,7 +12,7 @@ var WriteStream  = fs.createWriteStream("ImagesLink.txt", "UTF-8");
 
 
 
-request('https://www.bridgeport.edu/', (err, resp, html)=>{
+request('https://opensea.io/accounts/beeef.nftpostcard.eth/bastard-gan-punks-v2?search[sortBy]=LAST_TRANSFER_DATE&search[sortAscending]=false', (err, resp, html)=>{
 
     if(!err && resp.statusCode == 200){
         console.log("Request was success ");
@@ -23,7 +23,7 @@ request('https://www.bridgeport.edu/', (err, resp, html)=>{
         $("img").each((index, image)=>{
 
             var img = $(image).attr('src');
-            var baseUrl = 'https://www.bridgeport.edu';
+            var baseUrl = 'https://opensea.io/accounts/beeef.nftpostcard.eth/bastard-gan-punks-v2?search[sortBy]=LAST_TRANSFER_DATE&search[sortAscending]=false';
             var Links = baseUrl + img;
             WriteStream.write(Links);
             WriteStream.write("\n");
@@ -34,5 +34,3 @@ request('https://www.bridgeport.edu/', (err, resp, html)=>{
     }
 
 });
-
-
